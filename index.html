@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+	<link href="stylesheet.css" rel="stylesheet">
+
+	<title>MLB Trivia</title>
+</head>
+<body class="bg-light">
+	<div class="container my-5">
+		<div class="container-fluid">
+			<div contenteditable class="text-center">
+			    <h1><span style="color: #000080">M</span>L<span style="color: red">B</span> Trivia</h1>
+			</div>
+
+			<div class="text-center">	
+				<p class="opening-msg fst-italic pb-5">Test out your Major League Baseball knowledge!</p>
+			</div>
+		<form name="quiz" id="quiz" onsubmit="checkAnswers(event)">
+			<div id="firstQuestion" class="pb-2">
+				<h5>Question #1</h5>
+				
+				<p>What shortstop holds the major league records for games played, assists and double plays?</p>
+				
+				<input type="radio" id="barryLarkin" name="questionOne" value="Barry Larkin" class="choice" required>
+				
+				<label for="barryLarkin"> Barry Larkin</label><br>
+				
+				<input type="radio" id="ozzieSmith" name="questionOne" value="Ozzie Smith" class="choice" required>
+				
+				<label for="ozzieSmith"> Ozzie Smith</label><br>
+				
+				<input type="radio" id="calRipken" name="questionOne" value="Cal Ripken" class="choice" required>
+				
+				<label for="calRipken"> Cal Ripken</label><br>
+				
+				<input type="radio" id="alexRodriguez" name="questionOne" value="Alex Rodriguez" class="choice" required>
+				
+				<label for="alexRodriguez"> Alex Rodriguez</label><br>
+				
+				<p id="answerOneMessage" class="pt-2"></p>
+			</div>
+
+			<div id="secondQuestion" class="pb-2">
+				<h5>Question #2</h5>
+				
+				<p>When was the designated hitter rule created?</p>
+				
+				<input type="radio" id="year1976" name="questionTwo" value="1976" class="choice" required>
+				
+				<label for="year1976"> 1976</label><br>
+				
+				<input type="radio" id="year1969" name="questionTwo" value="1969" class="choice" required>
+				
+				<label for="year1969"> 1969</label><br>
+				
+				<input type="radio" id="year1981" name="questionTwo" value="1981" class="choice" required>
+				
+				<label for="year1981"> 1981</label><br>
+				
+				<input type="radio" id="year1973" name="questionTwo" value="1973" class="choice" required>
+				
+				<label for="year1973"> 1973</label><br>
+				
+				<p id="answerTwoMessage" class="pt-2"></p>
+			</div>
+
+			<div id="thirdQuestion" class="pb-2">
+				<h5>Question #3</h5>
+				
+				<p>What did Babe Ruth, Rogers, Hornsby, Ted Williams and Willie Mays all do in their first major league at-bats?</p>
+				
+				<input type="radio" id="strikeOut" name="questionThree" value="Strike Out" class="choice" required>
+				
+				<label for="strikeOut"> Strike Out</label><br>
+				
+				<input type="radio" id="singled" name="questionThree" value="Singled" class="choice" required>
+				
+				<label for="singled"> Singled</label><br>
+				
+				<input type="radio" id="flyOut" name="questionThree" value="Fly Out" class="choice" required>
+				
+				<label for="flyOut"> Fly Out</label><br>
+				
+				<input type="radio" id="doubled" name="questionThree" value="Doubled" class="choice" required>
+				
+				<label for="doubled"> Doubled</label><br>
+				
+				<p id="answerThreeMessage" class="pt-2"></p>
+				
+				<input type="submit" id="subBtn" value="Submit">
+			</div>
+		</form>
+		
+		<p id="score" class="py-2 fw-bold fs-3 text-center"></p>
+		
+		<div class="d-flex justify-content-center text-center">
+			<button id="resetBtn" class="btn btn-dark  btn-lg">Try Again</button>
+		</div>
+	</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
