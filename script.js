@@ -17,19 +17,19 @@ Step 7: Define a variable called choices with the selection of all the choices/p
 Step 8: Create a function expression called checkAnswers that will take in an event as its parameter.
 On our HTML page, we add an onsubmit attribute to the form element so that it executes this function 
 whenever a submit is made.
-Step 9: Define a variable called firstAnswer with the selection of the first question's value/user's
-answer.
-Step 10: Define a variable called secondAnswer with the selection of the second question's value/user's
-answer.
-Step 11: Define a variable called thirdAnswer with the selection of the third question's value/user's
-answer.
-Step 12: With several if statements check if the user's answers are equal to the correct answer.
-If they are, display a message indicating that the answer is correct and increase the gradeScore by one.
-If it isn't, display a message indicating that the answer is incorrect. 
-Step 13: Display the user's final score.
-Step 14: Use the preventDefault method on the event parameter to prevent the form to be submitted.
+Step 9: Use the preventDefault method on the event parameter to prevent the form to be submitted.
 This will be used so that the random number doesn't change with every submission and the messages 
 displayed on the page can be visible after every submission. 
+Step 10: Define a variable called firstAnswer with the selection of the first question's value/user's
+answer.
+Step 11: Define a variable called secondAnswer with the selection of the second question's value/user's
+answer.
+Step 12: Define a variable called thirdAnswer with the selection of the third question's value/user's
+answer.
+Step 13: With several if statements check if the user's answers are equal to the correct answer.
+If they are, display a message indicating that the answer is correct and increase the gradeScore by one.
+If it isn't, display a message indicating that the answer is incorrect. 
+Step 14: Display the user's final score.
 Step 15: Call the resetButton function.
 Step 16: Create a function called resetButton. This function will display the <button> element that was hidden
 at first, which is the Try Again button. Will also add an addEventListener method to the reset button (resetBtn) with which
@@ -50,9 +50,11 @@ resetBtn.style.display = "none";
 const choices = document.getElementsByClassName("choice");
 
 const checkAnswers = function(event) {
-	let firstAnswer = document.quiz.questionOne.value;
-	let secondAnswer = document.quiz.questionTwo.value;
-	let thirdAnswer = document.quiz.questionThree.value;
+	event.preventDefault();
+
+	const firstAnswer = document.quiz.questionOne.value;
+	const secondAnswer = document.quiz.questionTwo.value;
+	const thirdAnswer = document.quiz.questionThree.value;
 	
 	if(firstAnswer === "Ozzie Smith") {
 		answerOneMessage.innerHTML = "Correct!"
@@ -75,8 +77,7 @@ const checkAnswers = function(event) {
 		answerThreeMessage.innerHTML = "Wrong! The correct answer is Strike Out."
 	};
 
-	scoreDisp.innerHTML = "Your score is: " + gradeScore + "/3" + " " + ((gradeScore / 3) * 100).toFixed(2) + "%";
-	event.preventDefault();	
+	scoreDisp.innerHTML = "Your score is: " + gradeScore + "/3" + " " + ((gradeScore / 3) * 100).toFixed(2) + "%";	
 	resetButton();
 };
 
@@ -84,7 +85,7 @@ function resetButton() {
 	resetBtn.style.display = "inline-block";	
   	resetBtn.addEventListener("click", resetQuiz);
   	for(i = 0; i < choices.length; i++) {
-	choices[i].disabled = true;
+		choices[i].disabled = true;
 	}
   	document.getElementById("subBtn").disabled = true;  	
 };
@@ -97,8 +98,8 @@ function resetQuiz() {
 	scoreDisp.innerHTML = "";
 	gradeScore = 0;
 	for(i = 0; i < choices.length; i++) {
-	choices[i].disabled = false;
-	choices[i].checked = false;
+		choices[i].disabled = false;
+		choices[i].checked = false;
 	}
 	document.getElementById("subBtn").disabled = false;	
 };
